@@ -32,7 +32,7 @@ public class PizzaPurchaser {
 		 writer.write(numPizzasOrdered + "\n");
 		 
 		 for(int i = pizzasToOrder.size()-1; i >= 0; i--) {
-			 writer.append(pizzasToOrder.get(i) + "");
+			 writer.append(pizzasToOrder.get(i).toString());
 			 if(i != 0) 
 				 writer.append(" ");
 		 }
@@ -52,5 +52,5 @@ public class PizzaPurchaser {
 	    		numSlices[i] = scan.nextInt();
 	    }
 	    p.orderPizza(numSlices, numPizzaTypes, maxSlices);
-	  }
+	 }
 }
