@@ -12,7 +12,7 @@ public class PizzaPurchaser {
 		 int numPizzasOrdered = 0;
 		 int currentIndex = numPizzaTypes-1;
 		 
-		 while(currentIndex >= 0) {
+		 while(currentIndex >= 0 && numSlicesOrdered != maxSlices) {
 			 if(pizzas[currentIndex] < maxSlices && pizzas[currentIndex] + numSlicesOrdered <= maxSlices) {
 				 numSlicesOrdered += pizzas[currentIndex];
 				 pizzasToOrder.add(currentIndex);
@@ -20,6 +20,7 @@ public class PizzaPurchaser {
 			 }
 			 currentIndex -= 1;
 		 }
+		 
 		 System.out.println("Target Slices: " + maxSlices);
 		 System.out.println("Slices Ordered: " + numSlicesOrdered);
 		 System.out.println("Num Pizzas Ordered: " + numPizzasOrdered);
@@ -30,7 +31,7 @@ public class PizzaPurchaser {
 	
 	 public static void main(String[] args) throws Exception { 
 		PizzaPurchaser p = new PizzaPurchaser();
-	    File doc = new File("e_also_big.in"); 
+	    File doc = new File("c_medium.in"); 
 	    Scanner scan = new Scanner(doc); 
 	    int maxSlices = scan.nextInt();
 	    int numPizzaTypes = scan.nextInt();
