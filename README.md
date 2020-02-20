@@ -1,4 +1,4 @@
-# Google-Hashcode-Practice
+# Google-Hash-Code-Practice
 My submission for the practice problem of the 2020 Google Hash Code Challenge
 
 
