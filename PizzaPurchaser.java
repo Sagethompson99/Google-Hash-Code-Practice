@@ -1,12 +1,15 @@
 package hashcodePractice;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PizzaPurchaser {
 	
-	 public void orderPizza(int[] pizzas, int numPizzaTypes, int maxSlices) {
+	 public void orderPizza(int[] pizzas, int numPizzaTypes, int maxSlices) throws IOException {
 		 ArrayList<Integer> pizzasToOrder = new ArrayList<Integer>() {};
 		 int numSlicesOrdered = 0;
 		 int numPizzasOrdered = 0;
@@ -21,12 +24,19 @@ public class PizzaPurchaser {
 			 currentIndex -= 1;
 		 }
 		 
-		 System.out.println("Target Slices: " + maxSlices);
-		 System.out.println("Slices Ordered: " + numSlicesOrdered);
-		 System.out.println("Num Pizzas Ordered: " + numPizzasOrdered);
-		 System.out.print("Pizzas Ordered: ");
-		 for(int i = pizzasToOrder.size()-1; i >= 0; i--)
-			 System.out.print(pizzasToOrder.get(i) + "  ");
+		 createResultsFile(numPizzasOrdered, pizzasToOrder);
+	 }
+	 
+	 public void createResultsFile(int numPizzasOrdered, ArrayList<Integer> pizzasToOrder) throws IOException {
+		 BufferedWriter writer = new BufferedWriter(new FileWriter("results"));
+		 writer.write(numPizzasOrdered + "\n");
+		 
+		 for(int i = pizzasToOrder.size()-1; i >= 0; i--) {
+			 writer.append(pizzasToOrder.get(i) + "");
+			 if(i != 0) 
+				 writer.append(" ");
+		 }
+		 writer.close();
 	 }
 	
 	 public static void main(String[] args) throws Exception { 
